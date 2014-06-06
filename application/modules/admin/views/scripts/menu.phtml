@@ -1,0 +1,24 @@
+<ul class="nav" id="side-menu">
+<?php
+$html = array();
+foreach ($this->container as $container) {
+    if (!empty($container->pages)) {
+        foreach ($container->pages as $page) {
+            $html[] = '<li>';
+            $html[] = $this->menu()->htmlify($page);
+            /*
+            if (!empty($page->pages)) {
+                $html[] = '<ul class="nav nav-second-level">';
+                foreach ($page->pages as $subpage) {
+                    $html[] = '<li>' . $this->menu()->htmlify($subpage) . '</li>';
+                }
+                $html[] = '</ul>';
+            }
+            */
+            $html[] = '</li>';
+        }
+    }
+}
+echo join(PHP_EOL, $html);
+?>
+</ul>

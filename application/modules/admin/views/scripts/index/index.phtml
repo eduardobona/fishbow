@@ -1,0 +1,20 @@
+<?php $this->headTitle($this->title) ?>
+<div class="panel panel-default">
+    <div class="panel-heading">Usuários</div>
+    <div class="panel-body"><?php echo count($this->unreadContacts) ?> não lidos</div>
+        <table class="table">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Usuário desde</th>
+            </tr>
+            <?php foreach ($this->users as $user): ?>
+            <tr>
+                <td><?php echo $this->escape($user->getName()) ?></td>
+                <td><?php echo $this->escape($user->getEmail()) ?></td>
+                <td><?php echo $this->escape($user->getCreatedFormatted()) ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</div>

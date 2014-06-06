@@ -1,0 +1,57 @@
+		.center{
+			text-align: center;
+		}
+		.assunto-voto{
+			font-size: 32px;
+			text-align: center;
+		}
+		.panel-heading .badge {
+			font-size: 22px;
+
+		}
+		.temas{
+			margin-top: 50px;
+		}
+		.temas .panel-heading{
+			background-color: #ffffff;
+		}
+		.temas .panel-heading a{
+			color: #2980b9;
+		}
+		.temas .panel-body p{
+			font-size: 18px;
+		}
+		.temas .panel {
+			border-radius: 0px;
+		}
+		body{
+			background-color: #3498db;
+		}
+		main{
+			min-height: 500px;
+		}
+		footer{
+			background-color: #ffffff;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			text-align: right;
+			color: #7f8c8d;
+			font-size: 16px;
+			padding-top: 8px;
+		}
+		header{
+			background-color: #ffffff;
+			padding-bottom: 50px;
+			padding-top: 50px;
+		}
+		header button {
+			margin-top: 50px;
+		}
+		header h1 {
+			color: #2980b9;
+		}
+		header h2 {
+			color: #7f8c8d;
+		}

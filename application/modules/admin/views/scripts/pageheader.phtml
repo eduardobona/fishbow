@@ -1,0 +1,5 @@
+<?php $active = $this->navigation()->findActive($this->container()) ?>
+<?php $this->headTitle($active['page']->getLabel()); ?>
+<h1 class="page-header">
+<?php echo $active['page']->getLabel() ?>
+</h1>

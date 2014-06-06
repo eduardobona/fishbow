@@ -1,0 +1,28 @@
+<?php echo $this->doctype() ?>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <?php $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <?php $this->headTitle()->setSeparator(' - '); ?>
+    <?php $this->headTitle('Login'); ?>
+    <!-- Core CSS - Include with every page -->
+    <?php $this->headLink()->appendStylesheet('/assets/admin/css/bootstrap.min.css') ?>
+    <?php $this->headLink()->appendStylesheet('/assets/admin/font-awesome/css/font-awesome.css') ?>
+
+    <!-- SB Admin CSS - Include with every page -->
+    <?php $this->headLink()->appendStylesheet('/assets/admin/css/sb-admin.css') ?>
+
+    <!-- Core Scripts - Include with every page -->
+    <?php $this->headScript()->appendFile('/assets/admin/js/jquery-1.10.2.js') ?>
+    <?php $this->headScript()->appendFile('/assets/admin/js/bootstrap.min.js') ?>
+
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headLink() ?>
+</head>
+<body>
+    <div class="container">
+    <?php echo $this->layout()->content ?>
+    </div>
+    <?php echo $this->headScript() ?>
+</body>
+</html>
