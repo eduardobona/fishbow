@@ -3,3 +3,8 @@ LICENSE.txt
 README.txt
 demos/
 extras/documentation
+library/Zend
+.DS_STORE
+.buildpath
+.settings
+.project
