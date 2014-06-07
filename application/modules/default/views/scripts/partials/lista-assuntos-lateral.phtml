@@ -17,14 +17,14 @@
 										</div>
 									</div>	   	
 								</div>
-								<div id="tema-<?php echo $tema->getIdTema()?>" class="panel-collapse collapse">
+								<div id="tema-<?php echo $tema->getIdTema()?>" class="panel-collapse collapse in">
 									<div class="panel-body colapse">
 										<ul class="list-group">
 <?php 		foreach($tema->getAssuntos() as $assunto): /* @var $assunto Application_Model_Row_ViewAssuntoVoto */ ?>
 											<li class="list-group-item">
-												<button type="button" class="btn btn-default btn-sm btn-success">
+												<a href="<?=$this->url(array("controller"=>"votacao", "action"=>"index", "id"=>$assunto->getIdAssunto()))?>" class="btn btn-default btn-sm btn-success" role="button">
 													<span class="glyphicon glyphicon-ok"></span> Votar
-												</button>
+												</a>
 												<span class="badge">
 													<?= $assunto->getQtdevotos() ?>
 												</span>
@@ -32,7 +32,7 @@
 											</li>
 <?php 		endforeach; ?>
 										</ul>
-										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-tema">
+										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-assunto">
 											<span class="glyphicon glyphicon-plus"></span>
 											Sugerir Assunto...
 										</button>
@@ -40,7 +40,7 @@
 								</div>	
 							</div>
 						</div>
-<?php 
+<?php
 			endif;
 			$i++;
 		endforeach; 

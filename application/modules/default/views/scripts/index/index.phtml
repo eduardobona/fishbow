@@ -1,99 +1,23 @@
 					<div class="col-sm-6">
+					
 <?php 
-		$i = 0;
-		foreach($this->temas as $tema): /* @var $tema Application_Model_Row_ViewTemaVoto */
-			if($i%2 == 0): 
-?>
-						<div class="col-sm-12">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<div class="row">
-										<div class="col-md-12">
-											<h4>
-												<a data-toggle="collapse" data-parent="#temas" href="#tema-<?php echo $tema->getIdTema()?>">
-													<?= $tema->getTitulo() ?>
-												</a>
-												<span class="badge pull-right"><?=$tema->getQtdevotos()?></span>
-											</h4>
-										</div>
-									</div>	   	
-								</div>
-								<div id="tema-<?php echo $tema->getIdTema()?>" class="panel-collapse collapse in">
-									<div class="panel-body colapse">
-										<ul class="list-group">
-<?php 		foreach($tema->getAssuntos() as $assunto): /* @var $assunto Application_Model_Row_ViewAssuntoVoto */ ?>
-											<li class="list-group-item">
-												<button type="button" class="btn btn-default btn-sm btn-success">
-													<span class="glyphicon glyphicon-ok"></span> Votar
-												</button>
-												<span class="badge">
-													<?= $assunto->getQtdevotos() ?>
-												</span>
-												<?= $assunto->getTitulo() ?>
-											</li>
-<?php 		endforeach; ?>
-										</ul>
-										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-assunto">
-											<span class="glyphicon glyphicon-plus"></span>
-											Sugerir Assunto...
-										</button>
-									</div>
-								</div>	
-							</div>
-						</div>
-<?php 
-			endif;
-			$i++;
-		endforeach; 
-?>
+	echo $this->partial("partials/lista-assuntos-lateral.phtml", "default", array(
+		"temas" => $this->temas,
+		"mod" => 0
+	));
+?>			
 					</div>
-
+					
+					
 					<div class="col-sm-6">
+					
 <?php 
-		$i = 0;
-		foreach($this->temas as $tema): /* @var $tema Application_Model_Row_ViewTemaVoto */
-			if($i%2 == 1): 
-?>
-						<div class="col-sm-12">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<div class="row">
-										<div class="col-md-12">
-											<h4>
-												<a data-toggle="collapse" data-parent="#temas" href="#tema-<?php echo $tema->getIdTema()?>">
-													<?= $tema->getTitulo() ?>
-												</a>
-												<span class="badge pull-right"><?=$tema->getQtdevotos()?></span>
-											</h4>
-										</div>
-									</div>	   	
-								</div>
-								<div id="tema-<?php echo $tema->getIdTema()?>" class="panel-collapse collapse in">
-									<div class="panel-body colapse">
-										<ul class="list-group">
-<?php 		foreach($tema->getAssuntos() as $assunto): /* @var $assunto Application_Model_Row_ViewAssuntoVoto */ ?>
-											<li class="list-group-item">
-												<button type="button" class="btn btn-default btn-sm btn-success">
-													<span class="glyphicon glyphicon-ok"></span> Votar
-												</button>
-												<span class="badge">
-													<?= $assunto->getQtdevotos() ?>
-												</span>
-												<?= $assunto->getTitulo() ?>
-											</li>
-<?php 		endforeach; ?>
-										</ul>
-										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-assunto">
-											<span class="glyphicon glyphicon-plus"></span>
-											Sugerir Assunto...
-										</button>
-									</div>
-								</div>	
-							</div>
-						</div>
-<?php 
-			endif;
-			$i++;
-		endforeach; 
-?>
+	echo $this->partial("partials/lista-assuntos-lateral.phtml", "default", array(
+		"temas" => $this->temas,
+		"mod" => 1
+	));
+?>			
 					</div>
+					
+					
+					
