@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_AssuntoVoto extends Zend_Db_Table_Row_Abstract {
+class Application_Model_Row_Assuntovoto extends Zend_Db_Table_Row_Abstract {
 
     public function getIdAssuntoVoto() {
         return $this->idAssuntoVoto;

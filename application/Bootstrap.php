@@ -15,6 +15,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 		$loader->addResourceType ( "class", "class/", "Class" );
 		$loader->addResourceType ( "model", "models/", "Model" );
 		$loader->addResourceType ( "plugin", "plugins/", "Plugin" );
+		
 		/*
 		 * $config = new Zend_Config_Ini('../application/configs/application.ini', 'staging'); print_r($config->resources->db); exit();
 		 */
