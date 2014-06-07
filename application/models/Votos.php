@@ -25,7 +25,23 @@ class Application_Model_Votos extends Zend_Db_Table_Abstract
  		return $this->fetchAll(
  				$this->select()->where("idAssunto = ?", $idAssunto)
  		);
- 	} 	
+ 	} 
+        //cadastrar
+        public function cadastrar($id){
+            $cadastro = $this->createRow(array(
+                "idAssunto"=>$idAssunto,
+                "idTema"=>$idTema,
+                "titulo"=>$titulo,
+                "criadoEm"=>$criadoEm,
+                "criadoPor"=>$criadoPor,
+                "aprovadoEm"=>$aprovadoEm,
+                "aprovadoPor"=>$aprovadoPor,
+                "status"=>$status,
+                "qtdevotos"=>$qtdevotos
+            ));
+            return $dados;
+        }
+        
  	
  	public function getVotosPaged($itemCountPerPage = 5) {
  	    $paginator = Zend_Paginator::factory($this->fetchAll($this->select()->order('rule ASC')));

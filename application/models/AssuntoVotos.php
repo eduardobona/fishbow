@@ -16,6 +16,16 @@ class Application_Model_AssuntoVotos extends Zend_Db_Table_Abstract
  	    $page = Zend_Controller_Front::getInstance()->getRequest()->getParam('page');
  	    return $paginator->setCurrentPageNumber($page);
  	}
+        //cadastrar
+        public function cadastrar($idVoto){
+            $cadastro = $this->createRow(array(
+                "idAssuntoVoto"=>$idAssuntoVoto,
+                "idAssunto"=>$idAssunto,
+                "criadoEm"=>$criadoEm,
+                "criadoPor"=>$criadoPor
+            ));
+            return $dados;
+        }
  	/*
  	public function getUser($id) 
 	{
