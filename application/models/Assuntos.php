@@ -5,11 +5,20 @@ class Application_Model_Assuntos extends Zend_Db_Table_Abstract
 
     protected $_name = 'assunto';
     protected $_rowClass = 'Application_Model_Row_Assunto';
+
+    public function cadastrar($data){
+    	$result = $this->createRow($data)->save();
+    	
+    	if($result){
+    		return $result;
+    	}else{
+    		return false;
+    	}
+    }
     
     public function getAssuntos ()
     {
-        return $this->fetchAll($this->select()
-            ->order('id DESC'));
+        return $this->fetchAll($this->select()->order('rand()'));
     }
     
     public function getAssuntosPaged ($itemCountPerPage = 5)
@@ -23,11 +32,15 @@ class Application_Model_Assuntos extends Zend_Db_Table_Abstract
         return $paginator->setCurrentPageNumber($page);
     }
     
+    public function getAssuntosPorUsuario($idUsuario) {
+    	return $this->fetchAll ( $this->select ()->where("criadoPor = ?", $idUsuario) );
+    }
+    
     public function getAssuntosPorTema ($idTema)
     {
     	return $this->fetchAll($this->select()
     	        ->where("idTema = ?", $idTema)
-    			->order('id DESC'));
+    			->order('rand()'));
     }
     
     public function getAssuntosPorTemaPaged ($idTema, $itemCountPerPage = 5)

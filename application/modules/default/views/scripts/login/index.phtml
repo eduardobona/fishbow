@@ -11,10 +11,14 @@
                 <?php echo $this->form->renderForm(false) ?>
                 <fieldset>
                     <div class="form-group">
-                    <?php echo $this->form->ra ?>
+                    <label>Email</label>
+                    <?php echo $this->form->email ?>
                     </div>
                     <div class="form-group">
-                    <?php echo $this->form->password ?>
+                    <label>Senha: (seu RA)</label>
+                    <?php echo $this->form->senha ?>
+					<p class="help-block"><small>Caso seu RA comece com dígitos 0, ignore-os.</small></p>
+					<p class="help-block"><small>Para: 00928382-90, Digite: 92838290</small></p>
                     </div>
                     <?php echo $this->form->submit ?>
                 </fieldset>

@@ -13,31 +13,28 @@ class LoginController extends Zend_Controller_Action
 	
 	public function indexAction()
 	{
-	    $form = new Default_Form_Assunto();
-		print_r($form);
-		exit();
-		
+	    $form = new Default_Form_Login();
 		$form->submit->setLabel('Login');
 
 		if ($this->getRequest()->isPost()) {
 		    $formData = $this->getRequest()->getPost();
 			if ($form->isValid($formData)) {
-				$ra = $form->getValue('ra');
-				$password = sha1($form->getValue('password'));
+				$email = $form->getValue('email');
+				$senha = sha1($form->getValue('senha'));
 				
-				$adapter = new Zend_Auth_Adapter_DbTable($this->_model->getAdapter(), 'students', 'ra', 'password');
-				$adapter->setIdentity($ra)->setCredential($password);
+				$adapter = new Zend_Auth_Adapter_DbTable($this->_model->getAdapter(), 'usuario', 'email', 'senha');
+				$adapter->setIdentity($email)->setCredential($senha);
 				
 				$result = $adapter->authenticate();
 				
 				if ($result->isValid())
 				{
-					$data = $adapter->getResultRowObject(null, 'Senha');
+					$data = $adapter->getResultRowObject(null, 'senha');
 					$this->auth->getStorage()->write($data);
 					
-					$student = $this->auth->getIdentity();
+					$usuario = $this->auth->getIdentity();
 					
-					if ($student->status == 1)
+					if ($usuario->status == 1)
 					{
 						$session = new Zend_Session_Namespace($this->auth->getStorage()->getNamespace());
 						$session->setExpirationSeconds(28800);
@@ -53,7 +50,7 @@ class LoginController extends Zend_Controller_Action
 				}
 				else
 				{
-					$this->_helper->flashMessenger(array('danger' => 'R.A. ou senha inválido'));
+					$this->_helper->flashMessenger(array('danger' => 'Email ou Senha Inválidos!'));
 					$this->_helper->redirector(null,'login','default');
 				}
 			}

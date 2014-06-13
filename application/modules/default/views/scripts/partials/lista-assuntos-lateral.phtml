@@ -20,7 +20,9 @@
 								<div id="tema-<?php echo $tema->getIdTema()?>" class="panel-collapse collapse in">
 									<div class="panel-body colapse">
 										<ul class="list-group">
-<?php 		foreach($tema->getAssuntos() as $assunto): /* @var $assunto Application_Model_Row_ViewAssuntoVoto */ ?>
+
+<?php 		if(count($tema->getAssuntos())) foreach($tema->getAssuntos() as $assunto): /* @var $assunto Application_Model_Row_ViewAssuntoVoto */ ?>
+<?php 			if($assunto->getStatus()): ?>
 											<li class="list-group-item">
 												<a href="<?=$this->url(array("controller"=>"votacao", "action"=>"index", "id"=>$assunto->getIdAssunto()))?>" class="btn btn-default btn-sm btn-success" role="button">
 													<span class="glyphicon glyphicon-ok"></span> Votar
@@ -30,9 +32,10 @@
 												</span>
 												<?= $assunto->getTitulo() ?>
 											</li>
+<?php 			endif; ?>
 <?php 		endforeach; ?>
 										</ul>
-										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-assunto">
+										<button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".modal-assunto-<?=$tema->getIdTema()?>">
 											<span class="glyphicon glyphicon-plus"></span>
 											Sugerir Assunto...
 										</button>
@@ -40,6 +43,7 @@
 								</div>	
 							</div>
 						</div>
+<?php			echo $this->partial("partials/modal-assunto.phtml", "default", array("tema"=>$tema)); ?>
 <?php
 			endif;
 			$i++;

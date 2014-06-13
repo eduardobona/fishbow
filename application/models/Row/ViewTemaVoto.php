@@ -28,7 +28,7 @@ class Application_Model_Row_ViewTemaVoto extends Zend_Db_Table_Row_Abstract {
 		return $this->qtdevotos;
 	}
 	public function getAssuntos() {
-		return $this->findDependentRowset ( 'Application_Model_ViewAssuntoVotos' );
+		return $this->findDependentRowset ( 'Application_Model_ViewAssuntoVotos');
 	}
 }
 

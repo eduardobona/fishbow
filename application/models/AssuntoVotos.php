@@ -11,6 +11,14 @@ class Application_Model_AssuntoVotos extends Zend_Db_Table_Abstract {
 		return $this->fetchAll ( $this->select ()->where("criadoPor = ?", $idUsuario) );
 	}
 	
+	public function getAssuntoVotoPorUsuarioPorAssunto($idUsuario, $idAssunto){
+		$sql = $this->select();
+		$sql->where("criadoPor = ?", $idUsuario);
+		$sql->where("idAssunto = ?", $idAssunto);
+		
+		return $this->fetchAll($sql);
+	}
+	
 	public function getAssuntoVotosPaged($itemCountPerPage = 5) {
 		$paginator = Zend_Paginator::factory ( $this->fetchAll ( $this->select ()->order ( 'rule ASC' ) ) );
 		$paginator->setItemCountPerPage ( $itemCountPerPage );
@@ -18,24 +26,17 @@ class Application_Model_AssuntoVotos extends Zend_Db_Table_Abstract {
 		return $paginator->setCurrentPageNumber ( $page );
 	}
 	
-	
-	
 	// cadastrar
-	public function cadastrar($idAssunto) {
-		
-		if($this->getAssuntoVotosPorUsuario(0)->count()){
-			return false;
-		}
-		
+	public function cadastrar($idAssunto, $idUsuario) {
 		$data = new Zend_Date();
+		
 		$cadastro = $this->createRow (array(
 			"idAssunto" => $idAssunto,
+			"criadoPor" => $idUsuario,
 			"criadoEm" => $data->get(Zend_Date::ISO_8601)
 		))->save();
 		
 		return $cadastro;
 	}
-	/*
-	 * public function getUser($id) { $id = (int)$id; $row = $this->fetchRow('id = ' . $id); if (!$row) { throw new Exception("Could not find row $id"); } return $row; } public function deleteUser($id) { $this->delete('id =' . (int) $id); }
-	 */
+	
 }
