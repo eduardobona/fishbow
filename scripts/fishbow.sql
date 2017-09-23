@@ -142,6 +142,8 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `status' int DEFAULT 1 NOT NULL
   `criadoEm` datetime NOT NULL,
   `idCurso` int(11) NOT NULL,
   PRIMARY KEY (`idUsuario`)
@@ -154,7 +156,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Erick Lek Lek','erikleklek@gmail.com','2014-05-01 00:00:00',1),(2,'Japinha Caipira','japinha@yahoo.com','2014-05-02 00:00:00',2),(7,'Winicius Xandy Vem Neném','winixandy@gmail.com','2014-05-30 00:00:00',2),(8,'Martinho da Villa','martilho.davilla@gmail.com','2014-05-10 00:00:00',3),(9,'Pricila','pricila@hotmail.com','2014-05-23 00:00:00',4),(10,'Rodrigo Pinduca','RoDrIgO_PiNdUcA','2014-05-22 00:00:00',5),(11,'Boninha','bonaCS@gmail.com','2014-05-24 00:00:00',24),(12,'Mussum Ipsum','mussum.ipsum@gmail.com','2014-05-17 00:00:00',7),(13,'Ciclope','ciclope@gmail.com','2014-05-11 00:00:00',8),(14,'Wolverine da Silva','wolverine.silva@gmail.com','2014-05-14 00:00:00',9),(15,'Ryu Raduquen','Ryu_Raduquen@yahoo.com','2014-05-29 00:00:00',10),(16,'Ken','ken@yahoo.com','2014-05-15 00:00:00',11),(17,'Zangief','zangief@hotmail.com','2014-05-23 00:00:00',12);
+-- INSERT INTO `usuario` VALUES (1,'Erick Lek Lek','erikleklek@gmail.com','2014-05-01 00:00:00',1),(2,'Japinha Caipira','japinha@yahoo.com','2014-05-02 00:00:00',2),(7,'Winicius Xandy Vem Neném','winixandy@gmail.com','2014-05-30 00:00:00',2),(8,'Martinho da Villa','martilho.davilla@gmail.com','2014-05-10 00:00:00',3),(9,'Pricila','pricila@hotmail.com','2014-05-23 00:00:00',4),(10,'Rodrigo Pinduca','RoDrIgO_PiNdUcA','2014-05-22 00:00:00',5),(11,'Boninha','bonaCS@gmail.com','2014-05-24 00:00:00',24),(12,'Mussum Ipsum','mussum.ipsum@gmail.com','2014-05-17 00:00:00',7),(13,'Ciclope','ciclope@gmail.com','2014-05-11 00:00:00',8),(14,'Wolverine da Silva','wolverine.silva@gmail.com','2014-05-14 00:00:00',9),(15,'Ryu Raduquen','Ryu_Raduquen@yahoo.com','2014-05-29 00:00:00',10),(16,'Ken','ken@yahoo.com','2014-05-15 00:00:00',11),(17,'Zangief','zangief@hotmail.com','2014-05-23 00:00:00',12);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
